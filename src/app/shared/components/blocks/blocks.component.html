@@ -1,0 +1,15 @@
+<section>
+  <ul>
+    <ng-template
+      #listSets
+      [ngTemplateOutlet]="listSets"
+      *ngFor="let set of sets"
+    >
+      <li (click)="getBoosters(set.code)">
+        <h4>{{ set.name }}</h4>
+        <p>{{ set.block }}</p>
+        <p>{{ set.releaseDate | date : "dd/MM/yyyy" }}</p>
+      </li>
+    </ng-template>
+  </ul>
+</section>

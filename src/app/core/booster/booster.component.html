@@ -1,0 +1,23 @@
+<section>
+  <ul>
+    <ng-template
+      #listBooster
+      [ngTemplateOutlet]="listBooster"
+      *ngFor="let booster of boosters"
+    >
+      <li>
+        <figure>
+          <img [src]="booster.imageUrl" />
+        </figure>
+        <div>
+          <p>{{ booster.name }}</p>
+          <p>{{ booster.manaCost }}</p>
+          <p>{{ booster.colorIdentity }}</p>
+          <p>{{ booster.text }}</p>
+        </div>
+      </li>
+    </ng-template>
+  </ul>
+</section>
+
+<p>booster works!</p>

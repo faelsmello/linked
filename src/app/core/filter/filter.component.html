@@ -1,0 +1,22 @@
+<section>
+  <form name="formFilter" [formGroup]="formFilter" (ngSubmit)="search()">
+    <input
+      type="text"
+      name="name"
+      placeholder="name"
+      [formControlName]="'name'"
+    />
+    <select [formControlName]="'block'" placeholder="bloco">
+      <ng-template
+        #listBlocks
+        [ngTemplateOutlet]="listBlocks"
+        *ngFor="let block of blocks"
+      >
+        <option [value]="block">{{ block }}</option>
+      </ng-template>
+    </select>
+    <button type="submit" [disabled]="formFilter.invalid">buscar</button>
+  </form>
+</section>
+
+<app-blocks [sets]="sets" (codeEvent)="goBooster($event)"></app-blocks>
