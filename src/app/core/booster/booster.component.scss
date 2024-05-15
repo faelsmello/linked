@@ -1,13 +1,41 @@
 section {
-  ul {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    list-style: none;
-    padding-inline-start: 0;
+    margin: 2rem 6rem;
+    ul {
+        margin: 0;
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem;
+        list-style: none;
 
-    li {
-      display: flex;
+        li {
+            display: flex;
+            background: var(--main-base-color);
+            color: white;
+            border-radius: 8px;
+
+            figure {
+                display: flex;
+                margin: 0;
+            }
+
+            .content {
+                padding: 1rem;
+                h4 {
+                    text-transform: uppercase;
+                    color: var(--main-base-second-color);
+                    margin: 0;
+                    font-size: 1.25rem;
+                }
+                p {
+                    margin: 0.25rem 0;
+                }
+                .mana-cost {
+                    display: flex;
+                    align-items: center;
+                    grid-gap: 0.5rem;
+                }
+            }
+        }
     }
-  }
 }

@@ -1,1 +1,79 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
+
+:root {
+    --main-font-rubik: "Rubik", sans-serif;
+    --main-font-sans-narrow: "PT Sans Narrow", sans-serif;
+    --main-base-color: #30343c;
+    --main-base-second-color: #ea3601;
+    --main-max-width: 1200px;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: var(--main-font-sans-narrow);
+}
+
+//
+
+html,
+body {
+    margin: 0;
+    font-size: 16px;
+    height: 100%;
+}
+
+body {
+    position: relative;
+    font-family: var(--main-font-family);
+    &::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+
+        background-image: linear-gradient(
+                to bottom,
+                rgba(245, 246, 252, 1),
+                rgba(255, 255, 255, 0.25)
+            ),
+            url(assets/image.png);
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        background-attachment: fixed;
+        filter: grayscale(100%) brightness(125%) saturate(0%) contrast(81%);
+        -webkit-filter: grayscale(100%) brightness(125%) saturate(0%)
+            contrast(81%);
+        -moz-filter: grayscale(100%) brightness(125%) saturate(0%) contrast(81%);
+    }
+}
+
+button {
+    min-width: 150px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    background: var(--main-base-second-color);
+    color: white;
+    transition: all ease-in-out 0.25s;
+    font-weight: 700;
+    min-height: 42px;
+
+    &:hover {
+        background: #ab2700;
+    }
+
+    &:disabled {
+        background: #606060;
+        color: #9b9b9b;
+        cursor: auto;
+    }
+}

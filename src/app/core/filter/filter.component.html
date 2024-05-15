@@ -1,22 +1,35 @@
 <section>
-  <form name="formFilter" [formGroup]="formFilter" (ngSubmit)="search()">
-    <input
-      type="text"
-      name="name"
-      placeholder="name"
-      [formControlName]="'name'"
-    />
-    <select [formControlName]="'block'" placeholder="bloco">
-      <ng-template
-        #listBlocks
-        [ngTemplateOutlet]="listBlocks"
-        *ngFor="let block of blocks"
-      >
-        <option [value]="block">{{ block }}</option>
-      </ng-template>
-    </select>
-    <button type="submit" [disabled]="formFilter.invalid">buscar</button>
-  </form>
+    <form name="formFilter" [formGroup]="formFilter" (ngSubmit)="search()">
+        <div class="content-form">
+            <input
+                type="text"
+                name="name"
+                placeholder="Nome"
+                [formControlName]="'name'"
+            />
+            <div class="select-custom">
+                <select [formControlName]="'block'">
+                    <option [value]="null">Bloco</option>
+                    <ng-template
+                        #listBlocks
+                        [ngTemplateOutlet]="listBlocks"
+                        *ngFor="let block of blocks"
+                    >
+                        <option [value]="block">{{ block }}</option>
+                    </ng-template>
+                </select>
+            </div>
+            <button type="submit" [disabled]="formFilter.invalid">
+                buscar
+            </button>
+        </div>
+    </form>
 </section>
 
-<app-blocks [sets]="sets" (codeEvent)="goBooster($event)"></app-blocks>
+<ng-container *ngIf="isLoading">
+    <app-loading></app-loading>
+</ng-container>
+
+<ng-container *ngIf="!isLoading">
+    <app-blocks [sets]="sets" (codeEvent)="goBooster($event)"></app-blocks>
+</ng-container>

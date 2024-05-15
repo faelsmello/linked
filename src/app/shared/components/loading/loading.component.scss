@@ -1,0 +1,42 @@
+.container-load {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    flex-direction: column;
+    .spinner {
+        width: 56px;
+        height: 56px;
+        display: grid;
+        animation: spinner 4s infinite;
+        &::before,
+        &::after {
+            content: "";
+            grid-area: 1/1;
+            border: 9px solid;
+            border-radius: 50%;
+            border-color: #ea3601 #ea3601 #0000 #0000;
+            mix-blend-mode: darken;
+            animation: spinner 1s infinite linear;
+        }
+
+        &::after {
+            border-color: #0000 #0000 rgba(49, 53, 61, 0.46)
+                rgba(49, 53, 61, 0.46);
+            animation-direction: reverse;
+        }
+    }
+
+    p {
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--main-base-color);
+        text-transform: uppercase;
+    }
+}
+
+@keyframes spinner {
+    100% {
+        transform: rotate(1turn);
+    }
+}

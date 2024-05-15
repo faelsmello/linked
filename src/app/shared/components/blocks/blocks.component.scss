@@ -1,9 +1,29 @@
 section {
-  ul {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    list-style: none;
-    padding-inline-start: 0;
-  }
+    margin: 2rem auto;
+    max-width: var(--main-max-width);
+    ul {
+        margin: 0;
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 1rem;
+        list-style: none;
+
+        li {
+            background: var(--main-base-color);
+            border-radius: 4px;
+            padding: 1rem;
+            color: white;
+            min-height: 120px;
+            h4 {
+                text-transform: uppercase;
+                color: var(--main-base-second-color);
+                margin: 0;
+                font-size: 1.25rem;
+            }
+            p {
+                margin: 0.25rem 0;
+            }
+        }
+    }
 }

@@ -1,23 +1,50 @@
-<section>
-  <ul>
-    <ng-template
-      #listBooster
-      [ngTemplateOutlet]="listBooster"
-      *ngFor="let booster of boosters"
-    >
-      <li>
-        <figure>
-          <img [src]="booster.imageUrl" />
-        </figure>
-        <div>
-          <p>{{ booster.name }}</p>
-          <p>{{ booster.manaCost }}</p>
-          <p>{{ booster.colorIdentity }}</p>
-          <p>{{ booster.text }}</p>
-        </div>
-      </li>
-    </ng-template>
-  </ul>
-</section>
+<ng-container *ngIf="isLoading">
+    <app-loading [message]="message"></app-loading>
+</ng-container>
 
-<p>booster works!</p>
+<ng-container *ngIf="!isLoading && !isError">
+    <section>
+        <ul>
+            <ng-template
+                #listBooster
+                [ngTemplateOutlet]="listBooster"
+                *ngFor="let booster of boosters"
+            >
+                <li>
+                    <figure>
+                        <img [src]="booster.imageUrl" />
+                    </figure>
+                    <div class="content">
+                        <h4>{{ booster.name }}</h4>
+                        <div class="mana-cost">
+                            <strong>{{ booster.manaCost }}</strong>
+
+                            <ng-template
+                                #listColor
+                                [ngTemplateOutlet]="listColor"
+                                *ngFor="let color of booster.colorIdentity"
+                            >
+                                <figure>
+                                    <img
+                                        width="15"
+                                        height="15"
+                                        [src]="
+                                            '../../../assets/icons/' +
+                                            color +
+                                            '.png'
+                                        "
+                                    />
+                                </figure>
+                            </ng-template>
+                        </div>
+                        <p>{{ booster.text }}</p>
+                    </div>
+                </li>
+            </ng-template>
+        </ul>
+    </section>
+</ng-container>
+
+<ng-container *ngIf="!isLoading && isError">
+    <app-error [error]="objError"></app-error>
+</ng-container>
